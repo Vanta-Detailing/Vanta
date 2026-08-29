@@ -1,4 +1,3 @@
-```javascript
 /* =========================================
    VANTA DETAILING
    MAIN JAVASCRIPT
@@ -735,4 +734,3 @@ console.log(
 console.log(
     "Precision in every detail."
 );
-```
