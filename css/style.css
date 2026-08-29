@@ -56,31 +56,44 @@ input {
     justify-content: center;
     align-items: center;
 
-    z-index: 9999;
+    z-index: 99999;
+
+    opacity: 1;
+    visibility: visible;
 
     transition:
-        opacity 0.8s ease,
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
         visibility 0.8s ease;
 }
 
 .loader.hidden {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
 .loader-logo {
-    font-size: 42px;
+    font-size: clamp(32px, 5vw, 48px);
+
     font-weight: 900;
+
     letter-spacing: 12px;
+
+    transform: translateY(10px);
+
+    opacity: 0;
+
+    animation:
+        loaderLogoIn 0.8s ease forwards;
 }
 
 .loader-line {
     width: 180px;
     height: 1px;
 
-    background: #222;
-
     margin-top: 30px;
+
+    background: #222;
 
     overflow: hidden;
 }
@@ -93,22 +106,54 @@ input {
 
     background: #fff;
 
-    animation: loaderProgress 1.8s ease forwards;
+    animation:
+        loaderProgress 2s
+        cubic-bezier(0.65, 0, 0.35, 1)
+        forwards;
 }
 
 .loader p {
     margin-top: 15px;
 
     font-size: 9px;
+
     letter-spacing: 3px;
 
     color: #555;
+
+    opacity: 0;
+
+    animation:
+        loaderTextIn 0.6s ease 0.3s forwards;
+}
+
+@keyframes loaderLogoIn {
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes loaderTextIn {
+
+    to {
+        opacity: 1;
+    }
+
 }
 
 @keyframes loaderProgress {
-    to {
+
+    0% {
+        width: 0%;
+    }
+
+    100% {
         width: 100%;
     }
+
 }
 
 
@@ -140,7 +185,8 @@ input {
     width: 35px;
     height: 35px;
 
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid
+        rgba(255, 255, 255, 0.4);
 
     transition:
         width 0.3s ease,
@@ -152,7 +198,8 @@ input {
     width: 60px;
     height: 60px;
 
-    border-color: rgba(255, 255, 255, 0.8);
+    border-color:
+        rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 900px) {
@@ -161,6 +208,7 @@ input {
     .cursor-ring {
         display: none;
     }
+
 }
 
 
@@ -187,19 +235,25 @@ input {
 
     border-radius: 50%;
 
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid
+        rgba(255, 255, 255, 0.15);
 
-    background: rgba(255, 255, 255, 0.025);
+    background:
+        rgba(255, 255, 255, 0.025);
 
     backdrop-filter: blur(3px);
 
-    animation: bubbleFloat linear forwards;
+    animation:
+        bubbleFloat linear forwards;
 }
 
 @keyframes bubbleFloat {
 
     0% {
-        transform: translateY(0) scale(1);
+        transform:
+            translateY(0)
+            scale(1);
+
         opacity: 0;
     }
 
@@ -212,9 +266,13 @@ input {
     }
 
     100% {
-        transform: translateY(-110vh) scale(1.4);
+        transform:
+            translateY(-110vh)
+            scale(1.4);
+
         opacity: 0;
     }
+
 }
 
 
@@ -234,6 +292,7 @@ input {
     padding: 0 6vw;
 
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
@@ -247,11 +306,14 @@ input {
 .navbar.scrolled {
     height: 70px;
 
-    background: rgba(5, 5, 5, 0.78);
+    background:
+        rgba(5, 5, 5, 0.78);
 
     backdrop-filter: blur(20px);
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.06);
 }
 
 .logo {
@@ -293,7 +355,8 @@ input {
 
     color: #999;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
 .nav-links > a:hover {
@@ -355,6 +418,7 @@ input {
     min-height: 100vh;
 
     display: flex;
+
     align-items: center;
 
     padding: 140px 8vw 100px;
@@ -365,19 +429,64 @@ input {
 .hero-image {
     position: absolute;
 
+    inset: -5%;
+
+    background:
+        radial-gradient(
+            ellipse at 70% 35%,
+            rgba(255,255,255,0.12),
+            transparent 25%
+        ),
+        radial-gradient(
+            ellipse at 80% 75%,
+            rgba(90,120,130,0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #181818 0%,
+            #080808 45%,
+            #020202 100%
+        );
+
+    transform: scale(1.06);
+
+    animation:
+        heroZoom 12s
+        ease-in-out infinite alternate;
+}
+
+.hero-image::before {
+    content: "";
+
+    position: absolute;
+
     inset: 0;
 
-    background-image:
-        url("YOUR-HERO-IMAGE-HERE.jpg");
+    background:
+        repeating-linear-gradient(
+            115deg,
+            transparent 0px,
+            transparent 80px,
+            rgba(255,255,255,0.015) 81px,
+            transparent 82px
+        );
 
-    background-size: cover;
-    background-position: center;
+    animation:
+        backgroundMove 14s
+        linear infinite;
+}
 
-    filter: saturate(0.7);
+@keyframes backgroundMove {
 
-    transform: scale(1.04);
+    from {
+        transform: translateX(-50px);
+    }
 
-    animation: heroZoom 12s ease-in-out infinite alternate;
+    to {
+        transform: translateX(50px);
+    }
+
 }
 
 @keyframes heroZoom {
@@ -389,6 +498,7 @@ input {
     to {
         transform: scale(1.1);
     }
+
 }
 
 .hero-overlay {
@@ -400,8 +510,8 @@ input {
         linear-gradient(
             90deg,
             #050505 0%,
-            rgba(5, 5, 5, 0.88) 35%,
-            rgba(5, 5, 5, 0.35) 100%
+            rgba(5,5,5,0.88) 35%,
+            rgba(5,5,5,0.35) 100%
         );
 }
 
@@ -431,26 +541,32 @@ input {
 
     border-radius: 50%;
 
-    background: radial-gradient(
-        circle,
-        rgba(255,255,255,0.08),
-        transparent 65%
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.08),
+            transparent 65%
+        );
 
     filter: blur(20px);
 
-    animation: shineMove 7s ease-in-out infinite alternate;
+    animation:
+        shineMove 7s
+        ease-in-out infinite alternate;
 }
 
 @keyframes shineMove {
 
     from {
-        transform: translate(-50px, -20px);
+        transform:
+            translate(-50px, -20px);
     }
 
     to {
-        transform: translate(50px, 30px);
+        transform:
+            translate(50px, 30px);
     }
+
 }
 
 .hero-content {
@@ -485,7 +601,8 @@ input {
 }
 
 .hero-title {
-    font-size: clamp(65px, 10vw, 145px);
+    font-size:
+        clamp(65px, 10vw, 145px);
 
     line-height: 0.82;
 
@@ -501,7 +618,8 @@ input {
 .hero-title .outline {
     color: transparent;
 
-    -webkit-text-stroke: 1px rgba(255,255,255,0.65);
+    -webkit-text-stroke:
+        1px rgba(255,255,255,0.65);
 }
 
 .hero-description {
@@ -527,6 +645,8 @@ input {
 }
 
 .button {
+    position: relative;
+
     display: flex;
 
     align-items: center;
@@ -540,6 +660,8 @@ input {
     font-weight: 700;
 
     letter-spacing: 1.5px;
+
+    overflow: hidden;
 
     transition:
         transform 0.3s ease,
@@ -569,7 +691,45 @@ input {
 }
 
 .button-ghost:hover {
-    background: rgba(255,255,255,0.08);
+    background:
+        rgba(255,255,255,0.08);
+}
+
+.button-ripple {
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%);
+
+    animation:
+        buttonRipple 0.7s
+        ease-out forwards;
+}
+
+@keyframes buttonRipple {
+
+    from {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+    }
+
+    to {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+
 }
 
 .hero-bottom {
@@ -623,7 +783,8 @@ input {
 
     background: #fff;
 
-    animation: scrollLine 2s infinite;
+    animation:
+        scrollLine 2s infinite;
 }
 
 @keyframes scrollLine {
@@ -635,6 +796,7 @@ input {
     100% {
         transform: translateX(22px);
     }
+
 }
 
 .hero-location {
@@ -653,7 +815,7 @@ input {
 
 
 /* =========================================
-   REVEAL ANIMATIONS
+   REVEAL
 ========================================= */
 
 .reveal {
@@ -663,7 +825,8 @@ input {
 
     transition:
         opacity 1s ease,
-        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        transform 1s
+        cubic-bezier(0.16,1,0.3,1);
 }
 
 .reveal.visible {
@@ -714,7 +877,9 @@ input {
 
     gap: 40px;
 
-    animation: marquee 25s linear infinite;
+    animation:
+        marquee 25s
+        linear infinite;
 }
 
 .marquee-track span {
@@ -742,6 +907,7 @@ input {
     to {
         transform: translateX(-50%);
     }
+
 }
 
 
@@ -781,7 +947,8 @@ input {
 .about-content h2 {
     max-width: 700px;
 
-    font-size: clamp(42px, 6vw, 80px);
+    font-size:
+        clamp(42px, 6vw, 80px);
 
     line-height: 0.95;
 
@@ -817,7 +984,8 @@ input {
 .services-grid {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 15px;
 }
@@ -828,15 +996,14 @@ input {
     border: 1px solid #171717;
 
     transition:
-        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.5s
+        cubic-bezier(0.16,1,0.3,1),
         border-color 0.4s ease;
 
     overflow: hidden;
 }
 
 .service-card:hover {
-    transform: translateY(-12px);
-
     border-color: #333;
 }
 
@@ -875,18 +1042,25 @@ input {
             transparent 25%
         );
 
-    animation: placeholderGlow 8s ease-in-out infinite alternate;
+    animation:
+        placeholderGlow 8s
+        ease-in-out infinite alternate;
 }
 
 @keyframes placeholderGlow {
 
     from {
-        transform: rotate(0deg) scale(1);
+        transform:
+            rotate(0deg)
+            scale(1);
     }
 
     to {
-        transform: rotate(15deg) scale(1.2);
+        transform:
+            rotate(15deg)
+            scale(1.2);
     }
+
 }
 
 .placeholder-content {
@@ -899,7 +1073,6 @@ input {
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 8px;
@@ -993,11 +1166,13 @@ input {
 .service-content a span {
     font-size: 15px;
 
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease;
 }
 
 .service-content a:hover span {
-    transform: translate(5px, -5px);
+    transform:
+        translate(5px, -5px);
 }
 
 
@@ -1013,7 +1188,6 @@ input {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
@@ -1036,18 +1210,25 @@ input {
             #030303 70%
         );
 
-    animation: waterMove 8s ease-in-out infinite alternate;
+    animation:
+        waterMove 8s
+        ease-in-out infinite alternate;
 }
 
 @keyframes waterMove {
 
     from {
-        transform: scale(1) translateY(0);
+        transform:
+            scale(1)
+            translateY(0);
     }
 
     to {
-        transform: scale(1.08) translateY(-15px);
+        transform:
+            scale(1.08)
+            translateY(-15px);
     }
+
 }
 
 .water-background::before,
@@ -1064,11 +1245,15 @@ input {
 
     border-radius: 50%;
 
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
 
     filter: blur(2px);
 
-    animation: waterWave 5s ease-in-out infinite alternate;
+    animation:
+        waterWave 5s
+        ease-in-out infinite alternate;
 }
 
 .water-background::before {
@@ -1084,12 +1269,17 @@ input {
 @keyframes waterWave {
 
     from {
-        transform: translateX(-5%) scaleY(1);
+        transform:
+            translateX(-5%)
+            scaleY(1);
     }
 
     to {
-        transform: translateX(5%) scaleY(2);
+        transform:
+            translateX(5%)
+            scaleY(2);
     }
+
 }
 
 .water-content {
@@ -1101,7 +1291,8 @@ input {
 .water-content h2 {
     max-width: 900px;
 
-    font-size: clamp(50px, 8vw, 110px);
+    font-size:
+        clamp(50px, 8vw, 110px);
 
     line-height: 0.9;
 
@@ -1126,13 +1317,17 @@ input {
     width: 500px;
     height: 150px;
 
-    border: 1px solid rgba(255,255,255,0.08);
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
 
     border-radius: 50%;
 
     filter: blur(1px);
 
-    animation: ripple 5s ease-out infinite;
+    animation:
+        ripple 5s
+        ease-out infinite;
 }
 
 .ripple-one {
@@ -1164,6 +1359,7 @@ input {
 
         opacity: 0;
     }
+
 }
 
 
@@ -1178,7 +1374,8 @@ input {
 .before-after {
     position: relative;
 
-    height: min(65vw, 700px);
+    height:
+        min(65vw, 700px);
 
     min-height: 400px;
 
@@ -1203,7 +1400,8 @@ input {
 .after-image {
     z-index: 2;
 
-    clip-path: inset(0 0 0 50%);
+    clip-path:
+        inset(0 0 0 50%);
 }
 
 .after-image .placeholder-content {
@@ -1256,7 +1454,8 @@ input {
     align-items: center;
     justify-content: center;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     border-radius: 50%;
 
@@ -1276,7 +1475,8 @@ input {
 
     z-index: 4;
 
-    background: rgba(0,0,0,0.6);
+    background:
+        rgba(0,0,0,0.6);
 
     font-size: 8px;
 
@@ -1299,7 +1499,8 @@ input {
 .about {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 100px;
 
@@ -1331,7 +1532,8 @@ input {
 .stats {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 15px;
 
@@ -1378,7 +1580,8 @@ input {
 .gallery-grid {
     display: grid;
 
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr 1fr;
 
     grid-auto-rows: 300px;
 
@@ -1409,18 +1612,22 @@ input {
             rgba(255,255,255,0.04)
         );
 
-    transition: opacity 0.4s ease;
+    transition:
+        opacity 0.4s ease;
 }
 
 .gallery-item:hover::after {
     opacity: 0;
 }
 
-.gallery-item .placeholder-content {
-    transition: transform 0.5s ease;
+.gallery-item
+.placeholder-content {
+    transition:
+        transform 0.5s ease;
 }
 
-.gallery-item:hover .placeholder-content {
+.gallery-item:hover
+.placeholder-content {
     transform: scale(1.1);
 }
 
@@ -1437,7 +1644,6 @@ input {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
@@ -1466,7 +1672,9 @@ input {
             transparent 65%
         );
 
-    animation: contactGlow 6s ease-in-out infinite alternate;
+    animation:
+        contactGlow 6s
+        ease-in-out infinite alternate;
 }
 
 @keyframes contactGlow {
@@ -1478,6 +1686,7 @@ input {
     to {
         transform: scale(1.2);
     }
+
 }
 
 .contact-content {
@@ -1489,7 +1698,8 @@ input {
 }
 
 .contact h2 {
-    font-size: clamp(50px, 8vw, 105px);
+    font-size:
+        clamp(50px, 8vw, 105px);
 
     line-height: 0.9;
 
@@ -1509,6 +1719,8 @@ input {
 }
 
 .big-button {
+    position: relative;
+
     width: 240px;
     height: 70px;
 
@@ -1519,7 +1731,8 @@ input {
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 12px 0 25px;
+    padding:
+        0 12px 0 25px;
 
     border: 1px solid #444;
 
@@ -1529,7 +1742,10 @@ input {
 
     letter-spacing: 2px;
 
-    transition: 0.4s ease;
+    overflow: hidden;
+
+    transition:
+        0.4s ease;
 }
 
 .big-button div {
@@ -1547,7 +1763,8 @@ input {
 
     font-size: 18px;
 
-    transition: transform 0.4s ease;
+    transition:
+        transform 0.4s ease;
 }
 
 .big-button:hover {
@@ -1568,7 +1785,8 @@ input {
 ========================================= */
 
 footer {
-    padding: 70px 8vw 30px;
+    padding:
+        70px 8vw 30px;
 
     background: #050505;
 }
@@ -1618,7 +1836,8 @@ footer {
 
     font-size: 10px;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease;
 }
 
 .footer-links a:hover {
@@ -1657,7 +1876,8 @@ footer {
 
         inset: 0;
 
-        background: rgba(5,5,5,0.97);
+        background:
+            rgba(5,5,5,0.97);
 
         display: flex;
 
@@ -1667,13 +1887,16 @@ footer {
 
         gap: 30px;
 
-        transform: translateX(100%);
+        transform:
+            translateX(100%);
 
-        transition: transform 0.5s ease;
+        transition:
+            transform 0.5s ease;
     }
 
     .nav-links.active {
-        transform: translateX(0);
+        transform:
+            translateX(0);
     }
 
     .nav-links > a {
@@ -1683,7 +1906,8 @@ footer {
     }
 
     .nav-book {
-        padding: 15px 25px;
+        padding:
+            15px 25px;
     }
 
     .menu-button {
@@ -1694,12 +1918,18 @@ footer {
         z-index: 100;
     }
 
-    .menu-button.active span:first-child {
-        transform: rotate(45deg) translate(4px, 4px);
+    .menu-button.active
+    span:first-child {
+        transform:
+            rotate(45deg)
+            translate(4px, 4px);
     }
 
-    .menu-button.active span:last-child {
-        transform: rotate(-45deg) translate(4px, -4px);
+    .menu-button.active
+    span:last-child {
+        transform:
+            rotate(-45deg)
+            translate(4px, -4px);
     }
 
     .hero {
@@ -1717,7 +1947,8 @@ footer {
     }
 
     .section {
-        padding: 90px 5vw;
+        padding:
+            90px 5vw;
     }
 
     .section-top {
@@ -1745,7 +1976,8 @@ footer {
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
 
         grid-auto-rows: 250px;
     }
@@ -1763,6 +1995,7 @@ footer {
     .footer-links {
         gap: 60px;
     }
+
 }
 
 
@@ -1820,5 +2053,6 @@ footer {
 
         gap: 10px;
     }
+
 }
 ```
