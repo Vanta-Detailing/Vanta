@@ -5,19 +5,29 @@
 ========================================= */
 
 
+
 /* =========================================
    PAGE LOADER
 ========================================= */
 
-window.addEventListener("load", () => {
+const loader = document.querySelector(".loader");
 
-    const loader = document.querySelector(".loader");
+if (loader) {
 
+    // Wait for the animation to finish
     setTimeout(() => {
+
         loader.classList.add("hidden");
+
+        // Completely remove it after the fade
+        setTimeout(() => {
+            loader.remove();
+        }, 900);
+
     }, 1900);
 
-});
+}
+
 
 
 /* =========================================
