@@ -1,253 +1,698 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>VANTA Detailing | Premium Automotive Detailing</title>
+    <title>VANTA — Premium Automotive Detailing</title>
 
-    <meta name="description" content="Premium automotive detailing, paint correction and ceramic coating.">
+    <meta
+        name="description"
+        content="VANTA Automotive Detailing. Precision detailing, paint correction and ceramic protection."
+    >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- ==============================
+         LOADING SCREEN
+    =============================== -->
 
-    <nav>
+    <div class="loader">
+
+        <div class="loader-logo">
+            VANTA
+        </div>
+
+        <div class="loader-line">
+            <span></span>
+        </div>
+
+        <p>PREPARING YOUR EXPERIENCE</p>
+
+    </div>
+
+
+    <!-- ==============================
+         WATER / BUBBLES
+    =============================== -->
+
+    <div class="bubble-container"></div>
+
+
+    <!-- ==============================
+         CUSTOM CURSOR
+    =============================== -->
+
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
+
+
+    <!-- ==============================
+         NAVIGATION
+    =============================== -->
+
+    <header class="navbar">
+
         <a href="#" class="logo">
-            VANTA <span>DETAILING</span>
+            VANTA
+            <span>DETAILING</span>
         </a>
 
-        <div class="nav-links">
+        <nav class="nav-links">
+
             <a href="#services">Services</a>
+            <a href="#work">Our Work</a>
             <a href="#about">About</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact" class="nav-button">Book Now</a>
-        </div>
-    </nav>
+            <a href="#contact">Contact</a>
+
+            <a href="#contact" class="nav-book">
+                Book Now
+            </a>
+
+        </nav>
+
+        <button class="menu-button" aria-label="Open menu">
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
 
 
-    <!-- HERO -->
+    <!-- ==============================
+         HERO
+    =============================== -->
 
-    <section class="hero">
+    <main>
 
-        <div class="hero-content">
+        <section class="hero">
 
-            <span class="eyebrow">
-                Premium Automotive Detailing
-            </span>
+            <div class="hero-image"></div>
 
-            <h1>
-                YOUR CAR.<br>
-                <span>REFINED.</span>
-            </h1>
+            <div class="hero-overlay"></div>
 
-            <p>
-                Precision detailing for vehicles that deserve
-                more than ordinary. Restore the finish, protect
-                the surface and bring your vehicle back to its best.
-            </p>
+            <div class="water-shine"></div>
 
-            <div class="buttons">
+            <div class="hero-content">
 
-                <a href="#contact" class="button button-primary">
-                    BOOK A DETAIL
+                <div class="hero-tag reveal">
+                    <span></span>
+                    PREMIUM AUTOMOTIVE DETAILING
+                </div>
+
+                <h1 class="hero-title">
+
+                    <span class="line reveal">
+                        YOUR CAR.
+                    </span>
+
+                    <span class="line outline reveal">
+                        REDEFINED.
+                    </span>
+
+                </h1>
+
+                <p class="hero-description reveal">
+                    Precision detailing, protection and restoration
+                    for vehicles that deserve nothing less.
+                </p>
+
+                <div class="hero-buttons reveal">
+
+                    <a href="#contact" class="button button-primary">
+                        <span>BOOK A DETAIL</span>
+                        <i>↗</i>
+                    </a>
+
+                    <a href="#services" class="button button-ghost">
+                        EXPLORE SERVICES
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-bottom">
+
+                <div class="scroll-indicator">
+                    <span></span>
+                    SCROLL TO EXPLORE
+                </div>
+
+                <div class="hero-location">
+                    PREMIUM CARE
+                    <span>01 — 04</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             MARQUEE
+        =============================== -->
+
+        <section class="marquee-section">
+
+            <div class="marquee">
+
+                <div class="marquee-track">
+
+                    <span>DETAIL</span>
+                    <b>✦</b>
+
+                    <span>PROTECT</span>
+                    <b>✦</b>
+
+                    <span>RESTORE</span>
+                    <b>✦</b>
+
+                    <span>REFINE</span>
+                    <b>✦</b>
+
+                    <span>DETAIL</span>
+                    <b>✦</b>
+
+                    <span>PROTECT</span>
+                    <b>✦</b>
+
+                    <span>RESTORE</span>
+                    <b>✦</b>
+
+                    <span>REFINE</span>
+                    <b>✦</b>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             SERVICES
+        =============================== -->
+
+        <section class="services section" id="services">
+
+            <div class="section-top reveal">
+
+                <div>
+                    <span class="section-number">01 / SERVICES</span>
+
+                    <h2>
+                        BUILT FOR
+                        <span>PERFECTION.</span>
+                    </h2>
+                </div>
+
+                <p>
+                    From maintenance details to full paint correction
+                    and ceramic protection, every service is performed
+                    with precision.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+
+                <article class="service-card reveal">
+
+                    <div class="service-image image-placeholder">
+
+                        <div class="placeholder-content">
+                            <span>IMAGE</span>
+                            <small>FULL DETAIL</small>
+                        </div>
+
+                        <div class="image-number">
+                            01
+                        </div>
+
+                    </div>
+
+                    <div class="service-content">
+
+                        <div>
+                            <span>01</span>
+
+                            <h3>
+                                FULL DETAIL
+                            </h3>
+                        </div>
+
+                        <p>
+                            A complete interior and exterior
+                            transformation designed to bring
+                            your vehicle back to life.
+                        </p>
+
+                        <a href="#contact">
+                            LEARN MORE
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="service-card reveal">
+
+                    <div class="service-image image-placeholder">
+
+                        <div class="placeholder-content">
+                            <span>IMAGE</span>
+                            <small>PAINT CORRECTION</small>
+                        </div>
+
+                        <div class="image-number">
+                            02
+                        </div>
+
+                    </div>
+
+                    <div class="service-content">
+
+                        <div>
+                            <span>02</span>
+
+                            <h3>
+                                PAINT CORRECTION
+                            </h3>
+                        </div>
+
+                        <p>
+                            Refine the paintwork, remove imperfections
+                            and unlock a deeper, cleaner finish.
+                        </p>
+
+                        <a href="#contact">
+                            LEARN MORE
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="service-card reveal">
+
+                    <div class="service-image image-placeholder">
+
+                        <div class="placeholder-content">
+                            <span>IMAGE</span>
+                            <small>CERAMIC COATING</small>
+                        </div>
+
+                        <div class="image-number">
+                            03
+                        </div>
+
+                    </div>
+
+                    <div class="service-content">
+
+                        <div>
+                            <span>03</span>
+
+                            <h3>
+                                CERAMIC COATING
+                            </h3>
+                        </div>
+
+                        <p>
+                            Advanced paint protection that delivers
+                            exceptional gloss and long-term defence.
+                        </p>
+
+                        <a href="#contact">
+                            LEARN MORE
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             WATER FEATURE
+        =============================== -->
+
+        <section class="water-section">
+
+            <div class="water-background"></div>
+
+            <div class="water-content reveal">
+
+                <span class="section-number">
+                    THE VANTA STANDARD
+                </span>
+
+                <h2>
+                    WE DON'T JUST
+                    <span>CLEAN CARS.</span>
+                </h2>
+
+                <p>
+                    We restore them.
+                </p>
+
+            </div>
+
+            <div class="water-ripple ripple-one"></div>
+            <div class="water-ripple ripple-two"></div>
+            <div class="water-ripple ripple-three"></div>
+
+        </section>
+
+
+        <!-- ==============================
+             BEFORE / AFTER
+        =============================== -->
+
+        <section class="transformation section" id="work">
+
+            <div class="section-top reveal">
+
+                <div>
+
+                    <span class="section-number">
+                        02 / TRANSFORMATION
+                    </span>
+
+                    <h2>
+                        SEE THE
+                        <span>DIFFERENCE.</span>
+                    </h2>
+
+                </div>
+
+                <p>
+                    Drag the slider to see the transformation.
+                </p>
+
+            </div>
+
+
+            <div class="before-after reveal">
+
+                <div class="before-image image-placeholder">
+
+                    <div class="placeholder-content">
+                        <span>BEFORE IMAGE</span>
+                    </div>
+
+                    <span class="comparison-label before-label">
+                        BEFORE
+                    </span>
+
+                </div>
+
+                <div class="after-image image-placeholder">
+
+                    <div class="placeholder-content">
+                        <span>AFTER IMAGE</span>
+                    </div>
+
+                    <span class="comparison-label after-label">
+                        AFTER
+                    </span>
+
+                </div>
+
+                <div class="comparison-handle">
+                    <span>↔</span>
+                </div>
+
+                <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="50"
+                    class="comparison-slider"
+                    aria-label="Before and after comparison"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             ABOUT
+        =============================== -->
+
+        <section class="about section" id="about">
+
+            <div class="about-image image-placeholder reveal">
+
+                <div class="placeholder-content">
+                    <span>YOUR IMAGE</span>
+                    <small>DETAILING PROCESS</small>
+                </div>
+
+            </div>
+
+
+            <div class="about-content reveal">
+
+                <span class="section-number">
+                    03 / ABOUT VANTA
+                </span>
+
+                <h2>
+                    OBSESSED WITH
+                    <span>THE DETAILS.</span>
+                </h2>
+
+                <p>
+                    Every vehicle is different. Every surface deserves
+                    attention. That's why we approach every detail
+                    with patience, precision and purpose.
+                </p>
+
+                <p>
+                    From the first wash to the final inspection,
+                    our goal is simple: leave your vehicle looking
+                    better than you thought possible.
+                </p>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <strong data-count="100">0</strong>
+                        <span>%</span>
+                        <p>Attention to detail</p>
+                    </div>
+
+                    <div class="stat">
+                        <strong data-count="5">0</strong>
+                        <span>★</span>
+                        <p>Service standard</p>
+                    </div>
+
+                    <div class="stat">
+                        <strong data-count="24">0</strong>
+                        <span>/7</span>
+                        <p>Passion</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             GALLERY
+        =============================== -->
+
+        <section class="gallery section">
+
+            <div class="section-top reveal">
+
+                <div>
+
+                    <span class="section-number">
+                        04 / GALLERY
+                    </span>
+
+                    <h2>
+                        RECENT
+                        <span>WORK.</span>
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="gallery-grid">
+
+                <div class="gallery-item large image-placeholder reveal">
+                    <div class="placeholder-content">
+                        <span>IMAGE 01</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item image-placeholder reveal">
+                    <div class="placeholder-content">
+                        <span>IMAGE 02</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item image-placeholder reveal">
+                    <div class="placeholder-content">
+                        <span>IMAGE 03</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item image-placeholder reveal">
+                    <div class="placeholder-content">
+                        <span>IMAGE 04</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item large image-placeholder reveal">
+                    <div class="placeholder-content">
+                        <span>IMAGE 05</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             CTA
+        =============================== -->
+
+        <section class="contact" id="contact">
+
+            <div class="contact-glow"></div>
+
+            <div class="contact-content reveal">
+
+                <span class="section-number">
+                    READY WHEN YOU ARE
+                </span>
+
+                <h2>
+                    GIVE YOUR CAR
+                    <span>THE ATTENTION</span>
+                    IT DESERVES.
+                </h2>
+
+                <p>
+                    Tell us about your vehicle and what you'd like
+                    done. We'll take care of the rest.
+                </p>
+
+                <a href="mailto:YOUR_EMAIL@example.com" class="big-button">
+
+                    <span>GET A QUOTE</span>
+
+                    <div>
+                        ↗
+                    </div>
+
                 </a>
 
-                <a href="#services" class="button button-secondary">
-                    VIEW SERVICES
-                </a>
-
             </div>
 
-        </div>
+        </section>
 
-    </section>
-
-
-    <!-- SERVICES -->
-
-    <section class="services" id="services">
-
-        <div class="section-header">
-
-            <small>What We Do</small>
-
-            <h2>
-                DETAILING,<br>
-                DONE DIFFERENTLY.
-            </h2>
-
-            <p>
-                From a simple maintenance detail to complete
-                paint correction and protection, every vehicle
-                receives the same attention to detail.
-            </p>
-
-        </div>
+    </main>
 
 
-        <div class="service-grid">
-
-            <div class="service-card">
-
-                <span class="service-number">01</span>
-
-                <div>
-                    <h3>Full Detail</h3>
-
-                    <p>
-                        A complete interior and exterior
-                        transformation designed to restore
-                        your vehicle's appearance.
-                    </p>
-
-                    <div class="service-arrow">↗</div>
-                </div>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <span class="service-number">02</span>
-
-                <div>
-                    <h3>Paint Correction</h3>
-
-                    <p>
-                        Refine your paintwork and dramatically
-                        improve gloss, clarity and finish.
-                    </p>
-
-                    <div class="service-arrow">↗</div>
-                </div>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <span class="service-number">03</span>
-
-                <div>
-                    <h3>Ceramic Coating</h3>
-
-                    <p>
-                        Long-lasting protection that enhances
-                        gloss while helping defend your paint
-                        against everyday contaminants.
-                    </p>
-
-                    <div class="service-arrow">↗</div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="about" id="about">
-
-        <div class="about-image"></div>
-
-        <div class="about-text">
-
-            <span class="eyebrow">
-                The Vanta Standard
-            </span>
-
-            <h2>
-                DETAIL IS<br>
-                EVERYTHING.
-            </h2>
-
-            <p>
-                We believe great detailing isn't about simply
-                making a car look clean. It's about restoring
-                the small details that make the entire vehicle
-                feel new again.
-            </p>
-
-            <p>
-                Every surface is treated with precision,
-                using professional products and techniques
-                designed around the vehicle in front of us.
-            </p>
-
-            <div class="stats">
-
-                <div class="stat">
-                    <h3>100%</h3>
-                    <p>Attention to Detail</p>
-                </div>
-
-                <div class="stat">
-                    <h3>1:1</h3>
-                    <p>Vehicle Care</p>
-                </div>
-
-                <div class="stat">
-                    <h3>∞</h3>
-                    <p>Passion</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section class="cta" id="contact">
-
-        <span class="eyebrow">
-            Your Vehicle Deserves It
-        </span>
-
-        <h2>
-            READY TO<br>
-            REFRESH?
-        </h2>
-
-        <p>
-            Get in touch and let's get your vehicle looking its best.
-        </p>
-
-        <a href="mailto:YOUR_EMAIL@example.com"
-           class="button button-primary">
-            GET A QUOTE
-        </a>
-
-    </section>
-
-
-    <!-- FOOTER -->
+    <!-- ==============================
+         FOOTER
+    =============================== -->
 
     <footer>
 
-        <div class="footer-logo">
-            VANTA DETAILING
+        <div class="footer-top">
+
+            <div class="footer-brand">
+
+                <div class="logo">
+                    VANTA
+                    <span>DETAILING</span>
+                </div>
+
+                <p>
+                    Precision in every detail.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div>
+                    <span>EXPLORE</span>
+
+                    <a href="#services">Services</a>
+                    <a href="#work">Our Work</a>
+                    <a href="#about">About</a>
+                </div>
+
+                <div>
+                    <span>CONNECT</span>
+
+                    <a href="#contact">Contact</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                </div>
+
+            </div>
+
         </div>
 
-        <p>
-            © 2026 Vanta Detailing. All rights reserved.
-        </p>
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 VANTA DETAILING
+            </span>
+
+            <span>
+                BUILT WITH PRECISION
+            </span>
+
+        </div>
 
     </footer>
+
+
+    <script src="js/script.js"></script>
 
 </body>
 </html>
